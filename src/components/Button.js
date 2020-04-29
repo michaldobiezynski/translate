@@ -5,7 +5,8 @@ class Button extends Component {
   static contextType = LangaugeContext;
 
   render() {
-    return <button className='ui button primary'>Submit</button>;
+    const text = this.context === 'english' ? 'Submit' : 'Voorleggen';
+    return <button className='ui button primary'>{text}</button>;
   }
 }
 
