@@ -5,12 +5,14 @@ const Context = React.createContext('english');
 export class LanguageStore extends React.Component {
   state = { language: 'english' };
 
+  onLanguageChange = (language) => {
+    this.setState({ language });
+  };
+
   render() {
-    const onLanguageChange = (language) => {
-      this.setState({ language });
-    };
     return (
-      <Context.Provider value={{ ...this.state, onLanguageChange }}>
+      <Context.Provider
+        value={{ ...this.state, onLanguageChange: this.onLanguageChange }}>
         {this.props.children}
       </Context.Provider>
     );
